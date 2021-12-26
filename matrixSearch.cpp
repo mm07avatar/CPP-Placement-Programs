@@ -1,0 +1,39 @@
+/*
+Problem Statement:
+Perform matrix search for an element. 
+Return true or false accordindly witha constraint that 
+matrix should be in ascending order rowise and columnwise.
+*/
+#include "bits/stdc++.h"
+using namespace std;
+
+int main(){
+    int n,m;
+    cin>>n>>m;
+    int target;
+    cin>>target;
+    int mat[n][m];
+    for(int i=0; i<n; i++){
+        for(int j=0;j<m;j++)
+            cin>>mat[i][j];
+    }
+
+    int r=0,c=m-1;
+    bool found=false;
+    while(r<n and c>=0){
+        if(mat[r][c]==target){
+            found=true;
+        }
+        if(mat[r][c]>target)
+            c--;
+        else 
+            r++;
+    } 
+    if(found){
+        cout<<"Element found :) ";
+    }
+    else
+        cout<<"Element does't exist :( ";
+
+    return 0;
+}
